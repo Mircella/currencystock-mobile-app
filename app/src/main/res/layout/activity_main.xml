@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="net.vizja.currencystock.MainViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context=".MainActivity">
+
+            <EditText
+                android:id="@+id/login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:text="@={viewModel.login}"
+                android:hint="login"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/create_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->viewModel.createAccount()}"
+                android:text="Create account" />
+
+            <TextView
+                android:id="@+id/account_creation_result"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_span="4"
+                android:textSize="20sp"
+                app:mutableAccountCreationResult="@{viewModel.accountCreationResult}" />
+
+            <EditText
+                android:id="@+id/amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="Enter initial amount"
+                android:text="@={viewModel.amount}"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/currency"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="Enter currency"
+                android:text="@={viewModel.currencyCode}"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/create_exchange_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->viewModel.createExchangeAccount()}"
+                android:text="Create exchage account" />
+
+            <EditText
+                android:id="@+id/amount_to_top_up"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="Enter amount to top up"
+                android:text="@={viewModel.amountToTopUp}"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/top_up_exchange_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->viewModel.topUpExchangeAccount()}"
+                android:text="Top up exchange account" />
+
+            <EditText
+                android:id="@+id/amount_to_withdraw"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="Enter amount to withdraw"
+                android:text="@={viewModel.amountToWithdraw}"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/withdraw_exchange_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->viewModel.withdrawExchangeAccount()}"
+                android:text="Withdraw exchange account" />
+
+            <EditText
+                android:id="@+id/currency_code_to_check"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="Enter currency"
+                android:text="@={viewModel.currencyCodeToCheck}"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/check_currency_exchange_rate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->viewModel.checkCurrencyExchangeRate()}"
+                android:text="Check exchange rate" />
+            <TextView
+                android:id="@+id/exchange_rate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_span="4"
+                android:textSize="20sp"
+                app:mutableExchangeRate="@{viewModel.exchangeRate}" />
+
+            <EditText
+                android:id="@+id/amount_to_buy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="Enter amount to buy"
+                android:text="@={viewModel.amountToBuy}"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/currency_code_to_buy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="Enter currency"
+                android:text="@={viewModel.currencyCodeToBuy}"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/buy_currency"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->viewModel.buyCurrency()}"
+                android:text="Buy currency" />
+
+            <EditText
+                android:id="@+id/amount_to_sell"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="Enter amount to sell"
+                android:text="@={viewModel.amountToSell}"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/currency_code_to_sell"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="Enter currency"
+                android:text="@={viewModel.currencyCodeToSell}"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/sell_currency"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->viewModel.sellCurrency()}"
+                android:text="Sell currency" />
+
+            <Button
+                android:id="@+id/check_exchange_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->viewModel.checkExchangeAccount()}"
+                android:text="Check exchange account" />
+
+            <TextView
+                android:id="@+id/exchange_account_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_span="4"
+                android:textSize="20sp"
+                app:mutableExchangeAccount="@{viewModel.exchangeAccount}" />
+
+            <Button
+                android:id="@+id/list_exchange_account_transactions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->viewModel.listExchangeAccountTransactions()}"
+                android:text="Check transactions history" />
+
+            <TextView
+                android:id="@+id/exchange_account_transactions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_span="4"
+                android:textSize="20sp"
+                app:mutableExchangeAccountHistory="@{viewModel.exchangeAccountHistory}" />
+        </LinearLayout>
+    </ScrollView>
+</layout>
